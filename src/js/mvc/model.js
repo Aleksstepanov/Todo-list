@@ -5,7 +5,8 @@ const Model = new TodoList({
   name: 'My Todo List',
   list: [
     {
-      value: '',
+      id: 1,
+      value: 'go in bathroom',
       result: false,
     },
   ],

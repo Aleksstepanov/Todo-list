@@ -5,11 +5,10 @@ const render = {
     document.querySelector('.todo__value').value = elem;
   },
   list(elem) {
-    const listItem = document.querySelectorAll('li').length + 1;
     const item = `
-                <label class="mdl-checkbox mdl-js-checkbox" for="checkbox-${listItem}">
-                  <input type="checkbox" id="checkbox-${listItem}" class="mdl-checkbox__input">
-                  <span class="item__title mdl-checkbox__label">${elem}</span>
+                <label class="mdl-checkbox mdl-js-checkbox" for="checkbox-${elem.id}">
+                  <input type="checkbox" id="checkbox-${elem.id}" class="mdl-checkbox__input todo__check" data=${elem.id} ">
+                  <span class="item__title mdl-checkbox__label data=${elem.id} ">${elem.value}</span>
                 </label>
                 <button class="mdl-button mdl-js-button mdl-button--icon">
                   <img src="/assets/img/delete_sweep-black-18dp.svg", width="18px" height="18px" alt="delete">
@@ -20,6 +19,10 @@ const render = {
     li.innerHTML = item;
     document.querySelector('.todo__list').append(li);
     componentHandler.upgradeAllRegistered();
+    document.querySelector('#sample3').value = '';
+  },
+  check(elem) {
+    return elem.result ? document.querySelector(`.item__title[data='${elem.id}']`).classList.add('item__title-result') : document.querySelector(`.item__title[data='${elem.id}']`).classList.remove('item__title-result');
   },
 };
 export default render;
