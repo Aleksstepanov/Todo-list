@@ -7,7 +7,7 @@ html(lang="en")
     .content
       .todo
         .todo__name
-          h2.todo__title My Todo List
+          input(class="todo__value" type="text" disabled value="My Todo List")
           button(class="button button-todoName")
             img(class="button-create__icon" src="/assets/img/create-black-18dp.svg" width="18px" height="18px" alt="create")
         div(class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label todo__newInput")
@@ -15,12 +15,12 @@ html(lang="en")
           label(class="mdl-textfield__label" for="sample3") Add New Todo
         ul.todo__list
           li.item
-            label(class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-1")
+            label(class="mdl-checkbox mdl-js-checkbox" for="checkbox-1")
               input(type="checkbox" id="checkbox-1" class="mdl-checkbox__input")
-            span.item__title go in bathroom
+              span(class="item__title mdl-checkbox__label") go in bathroom
             button(class="mdl-button mdl-js-button mdl-button--icon")
               img(src="/assets/img/delete_sweep-black-18dp.svg", width="18px" height="18px" alt="delete")
         .todo__action
-          button(class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect") Add
-          button(class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect") Save
-          button(class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect") Clear
+          button(class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect btn__Add") Add
+          button(class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect btn__Save") Save
+          button(class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect btn__Clear") Clear
