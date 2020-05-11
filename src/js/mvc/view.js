@@ -22,7 +22,8 @@ const render = {
     document.querySelector('#sample3').value = '';
   },
   check(elem) {
-    return elem.checked ? elem.nextSibling.classList.add('item__title-result') : elem.nextSibling.classList.remove('item__title-result');
+    const dataAtr = String(elem.getAttribute('data'));
+    return elem.checked ? document.querySelector(`.item__title[data="${dataAtr}"]`).classList.add('item__title-result') : document.querySelector(`.item__title[data="${dataAtr}"]`).classList.remove('item__title-result');
   },
   remove(elem) {
     elem.parentNode.remove();

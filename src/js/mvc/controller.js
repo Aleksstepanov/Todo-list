@@ -11,6 +11,7 @@ const Todos = new Todo({
   createName: document.querySelector('.button-todoName'),
   add: document.querySelector('.btn__Add'),
   check: document.querySelectorAll('.todo__check'),
+  save: document.querySelector('.btn__Save'),
 });
 
 Todos.createName.addEventListener('click', () => {
@@ -34,4 +35,7 @@ document.querySelector('.todo__list').addEventListener('click', (event) => {
   if (!button) return;
   Model.remove(button);
   render.remove(button);
+});
+Todos.save.addEventListener('click', () => {
+  console.log(Model.list);
 });
