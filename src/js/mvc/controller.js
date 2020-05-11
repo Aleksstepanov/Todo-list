@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 /* eslint-disable no-useless-return */
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable no-console */
@@ -18,18 +19,19 @@ Todos.createName.addEventListener('click', () => {
 });
 
 Todos.add.addEventListener('click', () => {
-  const newTodo = {}; //новый элемент списка
-  const itemList = document.querySelector('#sample3'); //значение нового элемента из ипута
-  newTodo.id = Model.list.length + 1;
-  newTodo.value = itemList.value;
-  newTodo.result = false; //создадим новый элемент объекта
-  Model.list.push(newTodo); //отправим вновь созданный элемент в модель
-  render.list(newTodo); //отрисуем новый элемент
+  const itemList = document.querySelector('#sample3');
+  Model.addElem(itemList.value);
+  render.list(Model.list[Model.list.length - 1]);
 });
 document.querySelector('.todo__list').addEventListener('click', (event) => {
-  const check = event.target.closest('input');
-  if (!check) return;
-  const checked = Model.list.find((item) => item.id === Number(check.getAttribute('data')));
-  checked.result = !checked.result;
-  render.check(checked);
+  const check = event.target.closest('input'); //повесим событие на весь список
+  if (!check) return; //найдем клики по чекбоксам
+  Model.check(Number(check.getAttribute('data')));//Передалдим информацию в Model
+  render.check(check); //отрисуем результат
+});
+document.querySelector('.todo__list').addEventListener('click', (event) => {
+  const button = event.target.closest('button');//повесим событие на список и найдем клики по корзине
+  if (!button) return;
+  Model.remove(button);
+  render.remove(button);
 });
