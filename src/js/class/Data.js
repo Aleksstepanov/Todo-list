@@ -21,4 +21,8 @@ export default class Data {
     newTodo.result = false;
     this.list.push(newTodo);
   }
+
+  clear() {
+    this.list.splice(0, this.list.length);
+  }
 }

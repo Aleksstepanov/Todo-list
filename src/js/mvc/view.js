@@ -28,5 +28,11 @@ const render = {
   remove(elem) {
     elem.parentNode.remove();
   },
+  clear() {
+    // eslint-disable-next-line no-restricted-syntax
+    for (const elem of document.querySelectorAll('.item')) {
+      elem.remove();
+    }
+  },
 };
 export default render;

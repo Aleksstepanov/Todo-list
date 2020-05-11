@@ -12,6 +12,7 @@ const Todos = new Todo({
   add: document.querySelector('.btn__Add'),
   check: document.querySelectorAll('.todo__check'),
   save: document.querySelector('.btn__Save'),
+  clear: document.querySelector('.btn__Clear'),
 });
 
 Todos.createName.addEventListener('click', () => {
@@ -21,6 +22,7 @@ Todos.createName.addEventListener('click', () => {
 
 Todos.add.addEventListener('click', () => {
   const itemList = document.querySelector('#sample3');
+  if (itemList.value.length === 0) return;
   Model.addElem(itemList.value);
   render.list(Model.list[Model.list.length - 1]);
 });
@@ -38,4 +40,8 @@ document.querySelector('.todo__list').addEventListener('click', (event) => {
 });
 Todos.save.addEventListener('click', () => {
   console.log(Model.list);
+});
+Todos.clear.addEventListener('click', () => {
+  Model.clear();
+  render.clear();
 });
